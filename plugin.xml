@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="net.pardeike.touchpin"
+        version="0.0.1">
+
+  <name>TouchPin</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/touchpin.js" target="js/touchpin.js"/>
+
+  <js-module src="www/touchpin.js" name="touchpin">
+    <clobbers target="touchpin" />
+  </js-module>
+
+  <platform name="ios">
+
+    <config-file target="config.xml" parent="/widget">
+      <feature name="TouchPin">
+        <param name="ios-package" value="TouchPin" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/TouchPin.h" target-dir="TouchPinPlugin"/>
+    <source-file src="src/ios/TouchPin.m" target-dir="TouchPinPlugin"/>
+  </platform>
+
+</plugin>
