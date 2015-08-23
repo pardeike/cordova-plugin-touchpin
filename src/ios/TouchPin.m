@@ -1,18 +1,28 @@
 #import "TouchPin.h"
+#import "SecItemWrapper.h"
 
 @implementation TouchPin
 
-- (void) store:(CDVInvokedUrlCommand*)command {
-
+- (void)retrievePin:(CDVInvokedUrlCommand*)command {
 	NSString* callbackId = [command callbackId];
-	NSString* domain     = [[command arguments] objectAtIndex:0];
-	NSString* key        = [[command arguments] objectAtIndex:1];
-	NSString* value      = [[command arguments] objectAtIndex:2];
+	
+	SecItemWrapper *wrapper = [[SecItemWrapper alloc] initWithServiceName:@"TestService"];
+	NSString *pin = [wrapper getSecret];
+	
+	CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:pin];
+	[self.commandDelegate sendPluginResult:result callbackId:callbackId];
+}
 
-	CDVPluginResult* result = [CDVPluginResult
-											resultWithStatus:CDVCommandStatus_OK
-											messageAsString:@"result"];
-
+- (void)storePin:(CDVInvokedUrlCommand*)command {
+	
+	NSString* callbackId = [command callbackId];
+	NSString* token      = [[command arguments] objectAtIndex:0];
+	
+	SecItemWrapper *wrapper = [[SecItemWrapper alloc] initWithServiceName:@"TestService"];
+	[wrapper deleteSecret];
+	[wrapper addSecret:token];
+	
+	CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"ok"];
 	[self.commandDelegate sendPluginResult:result callbackId:callbackId];
 }
 

@@ -20,7 +20,12 @@ Install the plugin
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 
 ```js
-	touchpin.store("test", "mykey", "myval", function(result) {
+	touchpin.store("mysecret", function(result) {
+		alert(result);
+	}, function() {
+		alert("Error calling TouchPin");
+	});
+	touchpin.retrieve(function(result) {
 		alert(result);
 	}, function() {
 		alert("Error calling TouchPin");

@@ -25,6 +25,8 @@
 
     <header-file src="src/ios/TouchPin.h" target-dir="TouchPinPlugin"/>
     <source-file src="src/ios/TouchPin.m" target-dir="TouchPinPlugin"/>
+	 <header-file src="src/ios/SecItemWrapper.h" target-dir="TouchPinPlugin"/>
+    <source-file src="src/ios/SecItemWrapper.m" target-dir="TouchPinPlugin"/>
   </platform>
 
 </plugin>

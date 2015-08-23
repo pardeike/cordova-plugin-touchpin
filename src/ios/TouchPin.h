@@ -2,6 +2,7 @@
 
 @interface TouchPin : CDVPlugin
 
-- (void) store:(CDVInvokedUrlCommand*)command;
+- (void)retrievePin:(CDVInvokedUrlCommand*)command;
+- (void)storePin:(CDVInvokedUrlCommand*)command;
 
 @end
