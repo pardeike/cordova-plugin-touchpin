@@ -20,7 +20,9 @@
 																						 kSecAccessControlTouchIDCurrentSet, &error);
 	if (sacObject == NULL || error != NULL) {
 		NSString *errorString = [NSString stringWithFormat:@"SecItemAdd can't create sacObject: %@", error];
+#if DEBUG
 		NSLog(@"%@", errorString);
+#endif
 		return;
 	}
 	
@@ -37,7 +39,9 @@
 										  };
 	
 	OSStatus status =  SecItemAdd((__bridge CFDictionaryRef)attributes, nil);
+#if DEBUG
 	NSLog(@"SecItemAdd status: %@", [self keychainErrorToString:status]);
+#endif
 }
 
 - (NSString *)getSecret {
@@ -55,11 +59,15 @@
 		NSData *resultData = (__bridge_transfer NSData *)dataTypeRef;
 		
 		NSString *result = [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
+#if DEBUG
 		NSLog(@"SecItemCopyMatching got: %@", result);
+#endif
 		return result;
 	}
 	else {
+#if DEBUG
 		NSLog(@"SecItemCopyMatching status: %@", [self keychainErrorToString:status]);
+#endif
 		return NULL;
 	}
 }
@@ -73,7 +81,9 @@
 	OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
 	
 	NSString *errorString = [self keychainErrorToString:status];
+#if DEBUG
 	NSLog(@"SecItemDelete status: %@", errorString);
+#endif
 }
 
 - (NSString *)keychainErrorToString:(OSStatus)error {
