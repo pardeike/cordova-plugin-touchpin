@@ -1,13 +1,11 @@
-/*global cordova, module*/
-
 module.exports = {
 
-    store: function (token, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "TouchPin", "storePin", [token]);
+    store: function (key, token, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TouchPin", "storePin", [key, token]);
     },
 
-	 retrieve: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "TouchPin", "retrievePin", []);
+	 retrieve: function (key, text, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "TouchPin", "retrievePin", [key, text]);
     }
 
 };
