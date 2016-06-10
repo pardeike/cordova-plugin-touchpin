@@ -3,11 +3,12 @@
 @interface SecItemWrapper : NSObject {
 }
 
-- (instancetype)initWithServiceName:(NSString *)name;
+- (instancetype)initWithItemName:(NSString *)name andText:(NSString *)text;
 - (void)addSecret:(NSString *)token;
 - (NSString *)getSecret;
 - (void)deleteSecret;
 
-@property NSString *serviceName;
+@property NSString *itemName;
+@property NSString *itemText;
 
 @end
