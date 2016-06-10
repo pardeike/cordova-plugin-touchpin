@@ -24,14 +24,14 @@
 	SecItemWrapper *wrapper = [SecItemWrapper.alloc initWithItemName:forKey andText:@""];
 	[wrapper deleteSecret];
 	if([token isKindOfClass:NSString.class] && token.length > 0) {
-#ifdef DEBUG
+		#ifdef DEBUG
 		NSLog(@"Saving token %@ to store", token);
-#endif
+		#endif
 		[wrapper addSecret:token];
 	} else {
-#ifdef DEBUG
+		#ifdef DEBUG
 		NSLog(@"Clearing token from store");
-#endif
+		#endif
 		[wrapper deleteSecret];
 	}
 

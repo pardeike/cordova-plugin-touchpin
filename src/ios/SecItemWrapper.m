@@ -34,13 +34,13 @@
 	 */
 	NSData *secretPasswordTextData = [token dataUsingEncoding:NSUTF8StringEncoding];
 	NSDictionary *attributes = @{
-										  (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-										  (__bridge id)kSecAttrService: itemName,
-										  (__bridge id)kSecValueData: secretPasswordTextData,
-										  (__bridge id)kSecAttrAccessControl: (__bridge_transfer id)sacObject
-										  };
+		(__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+		(__bridge id)kSecAttrService: itemName,
+		(__bridge id)kSecValueData: secretPasswordTextData,
+		(__bridge id)kSecAttrAccessControl: (__bridge_transfer id)sacObject
+	};
 
-	OSStatus status =  SecItemAdd((__bridge CFDictionaryRef)attributes, nil);
+	OSStatus status = SecItemAdd((__bridge CFDictionaryRef)attributes, nil);
 	#if DEBUG
 	NSLog(@"SecItemAdd status: %@", [self keychainErrorToString:status]);
 	#endif
@@ -48,11 +48,11 @@
 
 - (NSString *)getSecret {
 	NSDictionary *query = @{
-									(__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
-									(__bridge id)kSecAttrService: itemName,
-									(__bridge id)kSecReturnData: @YES,
-									(__bridge id)kSecUseOperationPrompt: itemText,
-									};
+		(__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+		(__bridge id)kSecAttrService: itemName,
+		(__bridge id)kSecReturnData: @YES,
+		(__bridge id)kSecUseOperationPrompt: itemText,
+	};
 
 	CFTypeRef dataTypeRef = NULL;
 

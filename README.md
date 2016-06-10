@@ -1,6 +1,6 @@
 # Cordova TouchPin Plugin
 
-A plugin that stores a secret user pin in the iOS keychain protected by Touch ID.
+A plugin that stores a secret in the iOS keychain protected by Touch ID.
 
 ## Using
 Clone the plugin
@@ -20,12 +20,12 @@ Install the plugin
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 
 ```js
-	touchpin.store("mysecret", function(result) {
+	touchpin.store("mykey", "mysecret", function(result) {
 		alert(result);
 	}, function() {
 		alert("Error calling TouchPin");
 	});
-	touchpin.retrieve(function(result) {
+	touchpin.retrieve("mykey", "Please authenticate yourself", function(result) {
 		alert(result);
 	}, function() {
 		alert("Error calling TouchPin");
