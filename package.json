@@ -1,0 +1,31 @@
+{
+  "name": "cordova-plugin-touchpin",
+  "version": "1.0.0",
+  "description": "A plugin that stores a secret in the iOS keychain protected by Touch ID",
+  "cordova": {
+    "id": "net.pardeike.touchpin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pardeike/cordova-plugin-touchpin.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.4.0"
+    }
+  ],
+  "author": "Andreas Pardeike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pardeike/cordova-plugin-touchpin/issues"
+  },
+  "homepage": "https://github.com/pardeike/cordova-plugin-touchpin#readme"
+}
