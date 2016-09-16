@@ -5,19 +5,29 @@
 
   <name>TouchPin</name>
 
+  <description>
+    A plugin that stores a secret in the iOS keychain protected by Touch ID.
+  </description>
+
+  <author>Andreas Pardeike</author>
+
+  <license>MIT</license>
+
+  <repo>https://github.com/pardeike/cordova-plugin-touchpin</repo>
+
+  <issue>https://github.com/pardeike/cordova-plugin-touchpin/issues</issue>
+
   <engines>
-    <engine name="cordova" version=">=3.4.0"/>
+    <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
-  <asset src="www/touchpin.js" target="js/touchpin.js"/>
-
-  <js-module src="www/touchpin.js" name="touchpin">
+  <js-module src="www/touchpin.js" name="TouchPin">
     <clobbers target="touchpin" />
   </js-module>
 
   <platform name="ios">
 
-    <config-file target="config.xml" parent="/widget">
+    <config-file target="config.xml" parent="/*">
       <feature name="TouchPin">
         <param name="ios-package" value="TouchPin" />
       </feature>

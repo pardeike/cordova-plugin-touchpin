@@ -19,11 +19,11 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=3.4.0"
+      "version": ">=3.0.0"
     }
   ],
   "author": "Andreas Pardeike",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pardeike/cordova-plugin-touchpin/issues"
   },
