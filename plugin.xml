@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="net.pardeike.touchpin"
-        version="1.0.0">
+	id="net.pardeike.touchpin"
+	version="1.0.1">
 
-  <name>TouchPin</name>
+	<name>TouchPin</name>
 
-  <description>
-    A plugin that stores a secret in the iOS keychain protected by Touch ID.
-  </description>
+	<description>
+		A plugin that stores a secret in the iOS keychain protected by Touch ID.
+	</description>
 
-  <author>Andreas Pardeike</author>
+	<author>Andreas Pardeike</author>
 
-  <license>MIT</license>
+	<license>MIT</license>
 
-  <repo>https://github.com/pardeike/cordova-plugin-touchpin</repo>
+	<repo>https://github.com/pardeike/cordova-plugin-touchpin</repo>
 
-  <issue>https://github.com/pardeike/cordova-plugin-touchpin/issues</issue>
+	<issue>https://github.com/pardeike/cordova-plugin-touchpin/issues</issue>
 
-  <engines>
-    <engine name="cordova" version=">=3.0.0"/>
-  </engines>
+	<engines>
+		<engine name="cordova" version=">=3.0.0"/>
+	</engines>
 
-  <js-module src="www/touchpin.js" name="TouchPin">
-    <clobbers target="touchpin" />
-  </js-module>
+	<js-module src="www/touchpin.js" name="TouchPin">
+		<clobbers target="touchpin" />
+	</js-module>
 
-  <platform name="ios">
-
-    <config-file target="config.xml" parent="/*">
-      <feature name="TouchPin">
-        <param name="ios-package" value="TouchPin" />
-      </feature>
-    </config-file>
-
-    <header-file src="src/ios/TouchPin.h" target-dir="TouchPinPlugin"/>
-    <source-file src="src/ios/TouchPin.m" target-dir="TouchPinPlugin"/>
-	 <header-file src="src/ios/SecItemWrapper.h" target-dir="TouchPinPlugin"/>
-    <source-file src="src/ios/SecItemWrapper.m" target-dir="TouchPinPlugin"/>
-  </platform>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="TouchPin">
+				<param name="ios-package" value="TouchPin" />
+			</feature>
+		</config-file>
+		<header-file src="src/ios/TouchPin.h" target-dir="TouchPinPlugin"/>
+		<source-file src="src/ios/TouchPin.m" target-dir="TouchPinPlugin"/>
+		<header-file src="src/ios/SecItemWrapper.h" target-dir="TouchPinPlugin"/>
+		<source-file src="src/ios/SecItemWrapper.m" target-dir="TouchPinPlugin"/>
+	</platform>
 
 </plugin>
